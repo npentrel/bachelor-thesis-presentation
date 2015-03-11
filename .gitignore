@@ -21,6 +21,8 @@
 *.log
 *.toc
 *.aux
+*.ltxlog
+*.cache
 localpaths.tex
 _region_.tex
 comment.cut
