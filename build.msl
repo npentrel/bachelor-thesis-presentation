@@ -22,13 +22,12 @@ log+ steximporter
 //log+ lf
 
 extension info.kwarc.mmt.planetary.PlanetaryPlugin
+extension info.kwarc.mmt.planetary.PlanetaryPresenter
 extension info.kwarc.mmt.stex.STeXImporter
 
 archive add .
 
-build pythagoreantheorem stex-omdoc
-build pythagoreantheorem index
-build pythagoreantheorem mws-content
-build pythagoreantheorem mws-narration
+build MiKoMH/pythagoreantheorem stex-omdoc
+build MiKoMH/pythagoreantheorem planetary
 
 exit
