@@ -1,0 +1,127 @@
+diff --git a/HTMLparser/parse.py b/HTMLparser/parse.py
+index cb41505..6748217 100644
+--- a/HTMLparser/parse.py
++++ b/HTMLparser/parse.py
+@@ -1,8 +1,10 @@
+ from HTMLParser import HTMLParser
+ from htmlentitydefs import name2codepoint
++# from lxml import html
++# import requests
+ 
+ # DEBUG-OPTIONS
+-DEBUG_ALL = 0
++DEBUG_ALL = 1
+ DEBUG_TITLE = 0
+ 
+ # STACK
+@@ -13,51 +15,57 @@ title = ""
+ subtitle = ""
+ text = []
+ 
++in_slide = 0
++tag_count_in_slide = 0
++
+ #HTML for JSImpress Boilerplate
+ 
+ 
+ class MyHTMLParser(HTMLParser):
+     def handle_starttag(self, tag, attrs):
++        global tag_count_in_slide
+         if DEBUG_ALL:
+-            print "Start tag:", tag
++            print ("Start tag:" + tag)
+         tag_stack.append(tag)
+         for attr in attrs:
+             if DEBUG_ALL:
+-                print "     attr:", attr
++                print ("     attr:", attr)
+     def handle_endtag(self, tag):
+         if DEBUG_ALL:
+-            print "End tag  :", tag
++            print ("End tag  :", tag)
+         tag_stack.pop()
+     def handle_data(self, data):
+         global title
+         if (tag_stack[top()] == "dc:title"):
+             title = data
+             if DEBUG_TITLE:
+-                print tag_stack[top()] ,"Data     :", data
++                print (tag_stack[top()] ,"Data     :", data)
++        else:
++            if DEBUG_ALL:
++                print (tag_stack[top()] ,"Data     :", data)
+     def handle_comment(self, data):
+         if DEBUG_ALL | DEBUG_TITLE:
+-            print "Comment  :", data
++            print ("Comment  :", data)
+     def handle_entityref(self, name):
+         c = unichr(name2codepoint[name])
+         if DEBUG_ALL:
+-            print "Named ent:", c
++            print ("Named ent:", c)
+     def handle_charref(self, name):
+         if name.startswith('x'):
+             c = unichr(int(name[1:], 16))
+         else:
+             c = unichr(int(name))
+         if DEBUG_ALL:
+-            print "Num ent  :", c
++            print ("Num ent  :", c)
+     def handle_decl(self, data):
+         if DEBUG_ALL:
+-            print "Decl     :", data
++            print ("Decl     :", data)
+ 
+ #HELPER FUNCTIONS
+ def top():
+     return (len(tag_stack)-1)
+ 
+ def file_strip(file_name, out):
+-    out.write("!!!!")
+     input_file = open(file_name, 'r')
+     for line in input_file:
+         pass
+@@ -95,26 +103,29 @@ def create_presentation():
+     presentation_beginning_boilerplate("Hello World!", out)
+     presentation_slide("hello", "<div>test</div>", out)
+ 
+-    file_name = '../export/planetary/narration/measurements/measurement.html'
+-    file_strip(file_name, out)
+-#    parser = MyHTMLParser()
+-#    f = open('../export/planetary/narration/measurements/measurement.html', 'r')
+-    # print f
++    # file_name = '../export/planetary/narration/measurements/measurement.html'
++    # file_strip(file_name, out)
++    presentation_end(out)
+ 
+- #   for line in f:
+- #       parser.feed(line)
+ 
+ 
+-    presentation_end(out)
+ 
++parser = MyHTMLParser()
++
++f = open('../export/planetary/narration/measurements/measurement.html', 'r')
++
++# tree = html.fromstring(f)
++# print (tree)
+ 
++# for line in f:
++#    parser.feed(line)
+ 
+-create_presentation()
++# create_presentation()
+ 
+ 
+-print "-----------------------------------------------------------"
+-print "-----------------------------------------------------------"
+-print "TITLE: ", title
++print ("-----------------------------------------------------------")
++print ("-----------------------------------------------------------")
++print ("TITLE: ", title)
+ for t in text:
+-    print t
++    print (t)
+ # https://docs.python.org/2/library/htmlparser.html
+\ No newline at end of file

@@ -12,6 +12,7 @@ tag_stack = []
 title = ""
 subtitle = ""
 text = []
+offset = 0
 
 #HTML for JSImpress Boilerplate
 
@@ -57,7 +58,6 @@ def top():
     return (len(tag_stack)-1)
 
 def file_strip(file_name, out):
-    out.write("!!!!")
     input_file = open(file_name, 'r')
     for line in input_file:
         pass
@@ -82,7 +82,11 @@ def presentation_beginning_boilerplate(title, out):
         ' your browser. </div>')
 
 def presentation_slide(title, div, out):
-    out.write('<div class="step">')
+    global offset
+    out.write('<div class="step" data-y="')
+    out.write(str(offset))
+    offset += 1000
+    out.write('">')
     out.write(div)
     out.write('</div>')
 
