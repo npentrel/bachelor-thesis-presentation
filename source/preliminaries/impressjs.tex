@@ -38,24 +38,6 @@
 </div>
 \end{lstlisting}
 
-\noindent
-Apart from these basic attributes, impress.js offers the \texttt{data-scale} attribute to scale content, making slides appear bigger or smaller, and the \texttt{data-rotate} attribute which rotates slides in 3 dimensions using \texttt{data-rotate-x}, \texttt{data-rotate-y}, and \texttt{data-rotate-z}. This allows the presentation to go into the third dimension.\\
-\noindent
-The opacity attribute allows us to discriminate between active and inactive slides which allows us to hide content so as not show too much information to a user at once. Adding an overview can be accomplished with the last part of the CSS snippet and the HTML snippet below that.
-
-\begin{lstlisting}[language=HTML]
-.step { opacity: 0.2; }
-.step.active { opacity: 1; }
-.step-overview .step { opacity: 1; cursor: pointer; }
-\end{lstlisting}
-
-\begin{lstlisting}[language=HTML]
-<div id="overview" class="step" data-x="8000" data-y="1000"
-  data-scale="10"> </div>
-\end{lstlisting}
-\noindent
-To link back to a slide, slides are accessible via IDs. The slide with the ID \texttt{conclusion} will thus be accessible by appending \texttt{\#/conclusion} to the end of the URL.
-
   \end{module}
 \end{frame}
 %%% Local Variables:

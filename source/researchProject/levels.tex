@@ -6,9 +6,9 @@
   \frametitle{Levels}
   \begin{module}[id=levels]
 
-When writing a document or course notes in \stex, the creator general writes a top-level file such as \textit{notes.tex} from where other \TeX\ files are included. These included files again include further \TeX\ files etc.. 
+When writing a document or course notes in \stex, the creator general writes a top-level file such as \textit{notes.tex} from where other \TeX\ files are included. These included files again include further \TeX\ files etc.. \\
 
-We already know that a dependent piece of information infers that it is \textit{course-ancient} information. Anything that is on the same level or in the sublevels thereof is considered to be \textit{course-old} information.
+Anything that is on the same level or in the sublevels thereof is considered to be \textit{course-old} information.
 
 \mhcgraphics[width=0.70\textwidth]{researchProject/levels.png}
 
@@ -41,19 +41,6 @@ When the user enters an excursion a 90 degree rotation around the y-axis occurs 
   tabsize=2,                       % sets default tabsize to 2 spaces
   title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
-
-\begin{lstlisting}[language=HTML]
-<div class="step slide" data-x="8750" data-y="0" data-z="0"
-  data-rotate-y="0"> Slide </div>
-<div class="step slide" data-x="8750" data-y="800" data-z="0" 
-  data-rotate-y="0"> Dependency 1  </div>
-<div class="step slide" data-x="8750" data-y="800" data-z="0" 
-  data-rotate-y="90"> Dependency 1 Continuation 1 </div>
-<div class="step slide" data-x="8750" data-y="800" data-z="1250" 
-  data-rotate-y="90"> Dependency 1 Continuation 2 </div>
-\end{lstlisting}
-
-\mhcgraphics[width=0.65\textwidth]{researchProject/60degree}
 
   \end{module}
 \end{frame}

@@ -1,11 +1,10 @@
 %odule[path=preliminaries/impressjs]{impressjs}
-%ule[path=preliminaries/spatialNarrative]{spatialNarrative}
 %dule[path=preliminaries/narrativePath]{narrativePath}
 %ule[path=preliminaries/status]{status}
 
 \begin{frame}
-  \frametitle{Ordered Informaton Graphs II }
-  \begin{module}[id=orderedInfoGraphs2]\\
+  \frametitle{Levels Code}
+  \begin{module}[id=levelsCode]
 
 \lstset{ %
   backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
@@ -34,18 +33,16 @@
   tabsize=2,                       % sets default tabsize to 2 spaces
   title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
-\noindent
-The system RPresentation parses the relational data and thus retrieves the dependencies of the topics. \\
-\\
-\noindent
-Dependencies give us the \textit{course-ancient} information, as dependencies intuitively link to information likely obtained longer ago.\\
-
-\mhcgraphics[width=5.5cm]{researchProject/dependencyGraphPythTheo2}
 
 \begin{lstlisting}[language=HTML]
-<div class="step slide" data-x="8750" data-y="0"> Slide </div>
-<div class="step slide" data-x="8750" data-y="800"> Dependency 1 </div>
-<div class="step slide" data-x="8750" data-y="1600"> Dependency 2 </div>
+<div class="step slide" data-x="8750" data-y="0" data-z="0"
+  data-rotate-y="0"> Slide </div>
+<div class="step slide" data-x="8750" data-y="800" data-z="0" 
+  data-rotate-y="0"> Dependency 1  </div>
+<div class="step slide" data-x="8750" data-y="800" data-z="0" 
+  data-rotate-y="90"> Dependency 1 Continuation 1 </div>
+<div class="step slide" data-x="8750" data-y="800" data-z="1250" 
+  data-rotate-y="90"> Dependency 1 Continuation 2 </div>
 \end{lstlisting}
 
   \end{module}
