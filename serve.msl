@@ -28,6 +28,6 @@ extension info.kwarc.mmt.stex.STeXImporter
 archive add .
 
 mathpath fs http://cds.omdoc.org/styles /root/localmh/ext/MMT/styles
-base http://docs.omdoc.org/MiKoMH/pythagoreantheorem
+base http://docs.omdoc.org/MiKoMH/thesisPresentation
 
 server on 8081

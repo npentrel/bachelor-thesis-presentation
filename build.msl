@@ -27,7 +27,7 @@ extension info.kwarc.mmt.stex.STeXImporter
 
 archive add .
 
-build MiKoMH/pythagoreantheorem stex-omdoc
-build MiKoMH/pythagoreantheorem planetary
+build MiKoMH/thesisPresentation stex-omdoc
+build MiKoMH/thesisPresentation planetary
 
 exit

@@ -1,4 +1,4 @@
-id: MiKoMH/pythagoreantheorem
-source-base: http://mathhub.info/MiKoMH/pythagoreantheorem
-narration-base: http://mathhub.info/MiKoMH/pythagoreantheorem
+id: MiKoMH/thesisPresentation
+source-base: http://mathhub.info/MiKoMH/thesisPresentation
+narration-base: http://mathhub.info/MiKoMH/thesisPresentation
 dependencies:
