@@ -1,0 +1,64 @@
+\begin{frame}
+  \frametitle{impress.js}
+  \begin{module}[id=impressjs]\\
+  The open-source presentation framework \textbf{impress.js} was created by Bartek Szopka. \\
+  The presentation data is entered in the HTML file; each slide in its own div with \texttt{data-x}, \texttt{data-y}, and \texttt{data-z} attributes to change the position of the slide.\\
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Octave,                 % the language of the code
+  otherkeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\begin{lstlisting}[language=HTML]
+<div class="step" data-x="1000" data-y="0">
+  Slide Content
+</div>
+\end{lstlisting}
+
+\noindent
+Apart from these basic attributes, impress.js offers the \texttt{data-scale} attribute to scale content, making slides appear bigger or smaller, and the \texttt{data-rotate} attribute which rotates slides in 3 dimensions using \texttt{data-rotate-x}, \texttt{data-rotate-y}, and \texttt{data-rotate-z}. This allows the presentation to go into the third dimension.\\
+\noindent
+The opacity attribute allows us to discriminate between active and inactive slides which allows us to hide content so as not show too much information to a user at once. Adding an overview can be accomplished with the last part of the CSS snippet and the HTML snippet below that.
+
+\begin{lstlisting}[language=HTML]
+.step { opacity: 0.2; }
+.step.active { opacity: 1; }
+.step-overview .step { opacity: 1; cursor: pointer; }
+\end{lstlisting}
+
+\begin{lstlisting}[language=HTML]
+<div id="overview" class="step" data-x="8000" data-y="1000"
+  data-scale="10"> </div>
+\end{lstlisting}
+\noindent
+To link back to a slide, slides are accessible via IDs. The slide with the ID \texttt{conclusion} will thus be accessible by appending \texttt{\#/conclusion} to the end of the URL.
+
+  \end{module}
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "all"
+%%% End:
